@@ -1,0 +1,231 @@
+/* Header Styles */
+/* Global styles for body and html */
+html,
+body {
+  height: 100%; /* Assure une hauteur suffisante */
+  margin: 0; /* Retire les marges par défaut */
+  padding: 0; /* Retire les paddings par défaut */
+}
+
+/* Navbar Sticky Behavior */
+.navbar-custom {
+  position: sticky; /* Rend la navbar collante */
+  top: 0; /* Fixe la navbar au sommet */
+  z-index: 1030; /* S'assure que la navbar reste au-dessus des autres éléments */
+  background-color: #ffffff; /* Couleur de fond */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &.scrolled { /* Appliqué dynamiquement avec JS */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre plus forte au scroll */
+    background-color: #f8f8f8; /* Légère différence de couleur */
+  }
+}
+
+/* Section des Logos */
+.component-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px; /* Espacement réduit sur les côtés */
+
+  .logos-container {
+    display: flex; /* Aligne les éléments horizontalement */
+    align-items: center; /* Centrage vertical des logos */
+    justify-content: space-between; /* Espacement uniforme entre les logos */
+    flex-wrap: wrap; /* Permet un retour à la ligne si nécessaire */
+    gap: 15px; /* Espacement entre les éléments */
+  }
+
+  .logo-item {
+    flex: 0 0 auto; /* Taille fixe pour chaque logo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 80px; /* Taille par défaut des logos */
+      object-fit: contain;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre subtile */
+      }
+    }
+  }
+
+  .logo-main-item {
+    img {
+      height: 220px; /* Taille légèrement plus grande pour le logo principal */
+    }
+  }
+  /* Responsivité */
+  @media (max-width: 992px) {
+    .logos-container {
+      justify-content: center; /* Centre tous les logos sur les écrans moyens */
+    }
+
+    .logo-item img {
+      height: 70px; /* Taille réduite des logos */
+    }
+
+    .logo-main-item img {
+      height: 90px; /* Taille ajustée pour le logo principal */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logos-container {
+      flex-direction: column; /* Aligne les logos verticalement */
+      gap: 15px;
+    }
+
+    .logo-item img {
+      height: 60px; /* Réduction de la taille pour les petits écrans */
+    }
+
+    .logo-main-item img {
+      height: 80px; /* Taille ajustée pour le logo principal sur mobile */
+    }
+  }
+}
+
+
+
+
+/* Navbar Custom Styles */
+.navbar-custom {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &.sticky {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-toggler {
+    border: none;
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23333' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%2833, 37, 41, 0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    &:hover {
+      background-color: rgba(139, 0, 0, 0.1);
+    }
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      color: #8B0000;
+      background-color: rgba(139, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    &.active {
+      color: #8B0000;
+      font-weight: 700;
+    }
+  }
+  /* Dropdown Menu */
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .dropdown-menu {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    background-color: #ffffff;
+
+    .dropdown-item {
+      color: #555;
+      padding: 0.5rem 1rem;
+      font-size: 0.95rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background-color: rgba(139, 0, 0, 0.1);
+        color: #8B0000;
+        transform: translateX(5px);
+      }
+    }
+  }
+  /* Search Bar */
+  .search-bar {
+    position: relative;
+    max-width: 250px;
+    margin-left: auto; /* Push search bar towards the button */
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:focus {
+        border-color: #8B0000;
+        box-shadow: 0 0 8px rgba(139, 0, 0, 0.2);
+      }
+    }
+
+    .btn-search {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: #8B0000;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        color: #A40000;
+      }
+    }
+  }
+  /* Login Button */
+  .btn-outline-dark {
+    color: #8B0000;
+    border: 1px solid #8B0000;
+    border-radius: 20px;
+    margin-left: 15px; /* Small space between button and search bar */
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #8B0000;
+      color: #fff;
+    }
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .navbar-custom .navbar-nav {
+    text-align: center;
+
+    .nav-item {
+      margin: 0.5rem 0;
+    }
+  }
+
+  .search-bar {
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+}

@@ -1,0 +1,141 @@
+.presentation-section {
+  padding: 3rem;
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  /* Titre Principal */
+  .titrePage {
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: #8B0000;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 90px;
+      height: 5px;
+      background-color: #8B0000;
+      margin: 0.5rem auto;
+    }
+  }
+  /* Sections */
+  .section-content {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #8B0000;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: #8B0000;
+        margin-top: 5px;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 1.5rem;
+
+      a {
+        color: #8B0000;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          text-decoration: underline;
+          color: #600000;
+        }
+      }
+    }
+
+    ul {
+      margin-left: 1.5rem;
+
+      li {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+
+        &:before {
+          content: '✔';
+          color: #8B0000;
+          font-weight: bold;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+  /* Responsive Layout */
+  @media (max-width: 768px) {
+    padding: 2rem;
+
+    .titrePage {
+      font-size: 2.2rem;
+    }
+
+    .section-content {
+      padding: 1rem;
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      ul li {
+        font-size: 0.9rem;
+      }
+    }
+  }
+  /* Animations */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-in-out forwards;
+  /* Animation Keyframes */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Additional Styling for Links */
+.link-highlight {
+  font-style: italic;
+  font-weight: bold;
+  color: #8B0000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #600000;
+    text-decoration: underline;
+  }
+}

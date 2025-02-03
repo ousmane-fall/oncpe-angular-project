@@ -1,0 +1,149 @@
+<header class="component-header">
+  <div class="logos-container">
+    <!-- Logo principal -->
+    <div class="logo-item logo-main-item">
+      <a href="https://www.observatoirecpe.fr/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/Logo_ONCPE (1).png" alt="Logo Principal" />
+      </a>
+    </div>
+
+    <!-- Logos dynamiques -->
+    <div class="logo-item">
+      <a href="https://www.service-public.fr/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/RF.png" alt="République Française" />
+      </a>
+    </div>
+    <div class="logo-item">
+      <a href="https://www.ademe.fr/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/logo_ADEME.png" alt="ADEME" />
+      </a>
+    </div>
+    <div class="logo-item">
+      <a href="https://www.cerema.fr/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/Logo_CEREMA.png" alt="Cerema" />
+      </a>
+    </div>
+    <div class="logo-item">
+      <a href="https://www.cstb.fr/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/Logo_CSTB.png" alt="CSTB" />
+      </a>
+    </div>
+    <div class="logo-item">
+      <a href="https://programme-cee-actee.fr/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/images/Logo_ACTEE.png" alt="ACTEE" />
+      </a>
+    </div>
+  </div>
+</header>
+
+<nav class="navbar navbar-expand-lg navbar-custom" [class.scrolled]="isScrolled">
+  <div class="container-fluid">
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarResponsive">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <!-- Accueil -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Accueil</a>
+        </li>
+
+        <!-- Présentation -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             id="presentationDropdown"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false"
+             routerLink="/presentation"
+             routerLinkActive="active">
+            Présentation
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="presentationDropdown">
+            <li>
+              <a class="dropdown-item" [routerLink]="['/presentation']" fragment="historique">Historique</a>
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/presentation']" fragment="definitionCPE">Définition du CPE</a>
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/presentation']" fragment="enjeux">Enjeux et missions</a>
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/presentation']" fragment="partenaires">Les partenaires</a>
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/presentation']" fragment="contacts">Contact</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Actualités -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/actualites" routerLinkActive="active">Actualités</a>
+        </li>
+
+        <!-- Nos Publications -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/publications" routerLinkActive="active">Nos Publications</a>
+        </li>
+
+        <!-- Nos Ressources -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             id="ressourcesDropdown"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false"
+             routerLink="/ressources"
+             routerLinkActive="active">
+            Nos Ressources
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="ressourcesDropdown">
+            <li>
+              <a class="dropdown-item" [routerLink]="['/ressources']" fragment="guides">Guides</a>
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/ressources']" fragment="technical-resources">Ressources techniques</a>
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/ressources']" fragment="legal-resources">Ressources juridiques</a>
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/ressources']" fragment="case-studies">Retours d’expériences</a>
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/ressources']" fragment="international">International</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Search Bar -->
+      <form class="search-bar d-flex align-items-center me-3">
+        <input type="text"
+               class="form-control search-input"
+               placeholder="Rechercher..."
+               aria-label="Rechercher" />
+        <button class="btn btn-search" type="button">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+
+      <!-- Login Button -->
+      <button class="btn btn-outline-dark"
+              type="button"
+              onclick="window.location.href='https://gestion.observatoirecpe.fr/#/'">
+        Se Connecter
+      </button>
+    </div>
+  </div>
+</nav>
+

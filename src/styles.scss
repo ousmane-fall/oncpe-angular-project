@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+// Styles globaux pour le body
+html, body {
+  height: 100%; /* Assure que le sticky fonctionne */
+  margin: 0;
+  padding: 0; /* Supprime tout espace par défaut */
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+// Ajout d'un espace pour compenser la navbar collante
+main {
+  padding-top: 80px; /* Ajustez en fonction de la hauteur de la navbar */
+}

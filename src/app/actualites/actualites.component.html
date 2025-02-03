@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <h1>Actualités de l'ONCPE</h1>
+
+  <div *ngIf="actualites.length === 0" class="alert alert-info text-center">
+    Aucune actualité disponible.
+  </div>
+
+  <div class="sections">
+    <div *ngFor="let actualite of actualites; let i = index"
+         class="section"
+         [class.reverse]="i % 2 === 0">
+      <div class="section-image">
+        <img [src]="actualite.image" alt="{{ actualite.title }}">
+      </div>
+
+      <div class="section-content">
+        <h5 class="section-title">{{ actualite.title }}</h5>
+        <p class="section-subtitle">{{ actualite.subtitle }}</p>
+        <p class="section-description">{{ actualite.description }}</p>
+        <a [href]="actualite.link" class="btn btn-primary" target="_blank">Voir plus</a>
+      </div>
+    </div>
+  </div>
+</div>

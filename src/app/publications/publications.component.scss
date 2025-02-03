@@ -1,0 +1,113 @@
+// Palette de couleurs
+$primary-color: #8b0000; // Rouge sombre
+$secondary-bg: #f8f9fa; // Gris clair pour le fond global
+$card-bg: #fff; // Blanc pour les cartes
+$text-color: #333; // Texte principal
+$shadow-color: rgba(0, 0, 0, 0.1); // Ombre douce
+$hover-shadow: rgba(0, 0, 0, 0.15); // Ombre au survol
+
+.publications {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: $secondary-bg; // Fond général
+  border-radius: 12px;
+  box-shadow: 0 4px 8px $shadow-color;
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: $primary-color;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: $primary-color;
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+  }
+
+  .publication-card {
+    background: $card-bg; // Fond des cartes
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px $shadow-color;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px $hover-shadow;
+    }
+    // Image de la publication
+    .publication-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 1rem auto;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px $shadow-color;
+    }
+    // Contenu de la carte
+    .content {
+      h3 {
+        font-size: 1.8rem;
+        color: $primary-color;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: $text-color;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      a {
+        display: inline-block;
+        padding: 0.6rem 1.2rem;
+        background: $primary-color;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: lighten($primary-color, 10%);
+        }
+      }
+    }
+  }
+  // Responsive Design
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    .publication-card {
+      padding: 1rem;
+
+      .content {
+        h3 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+
+        a {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

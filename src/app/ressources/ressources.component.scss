@@ -1,0 +1,151 @@
+// Palette de couleurs
+$primary-color: #8b0000; // Rouge sombre
+$secondary-bg: #f8f9fa; // Gris clair pour le fond global
+$card-bg: #fff; // Fond des cartes ou sections
+$text-color: #333; // Texte principal
+$shadow-color: rgba(0, 0, 0, 0.1); // Ombre douce
+$hover-shadow: rgba(0, 0, 0, 0.2); // Ombre au survol
+
+.resources-section {
+  padding: 2rem;
+  background: $secondary-bg; // Nouveau background global
+  border-radius: 12px;
+  box-shadow: 0 8px 16px $shadow-color;
+  margin-bottom: 2rem;
+  // Titre principal
+  .titrePage {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: $primary-color;
+      margin: 0.8rem auto;
+      border-radius: 10px;
+    }
+  }
+  // Contenu des sections
+  .section-content {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: $card-bg; // Fond des sections individuelles
+    border-radius: 15px;
+    box-shadow: 0 6px 12px $shadow-color;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px $hover-shadow;
+    }
+    // Numérotation des sections
+    .num-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: $primary-color;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.1rem;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: $primary-color;
+        margin: 0.5rem auto;
+        border-radius: 5px;
+      }
+    }
+    // Paragraphes et liens
+    p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: $text-color;
+      margin-bottom: 1.5rem;
+
+      a {
+        color: $primary-color;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          text-decoration: underline;
+          color: darken($primary-color, 10%);
+        }
+      }
+    }
+    // Listes
+    ul {
+      margin: 1.5rem 0 0 1.5rem;
+      list-style: none;
+
+      li {
+        font-size: 1rem;
+        color: darken($text-color, 20%);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        position: relative;
+        padding-left: 1.5rem;
+
+        &:before {
+          content: '•';
+          position: absolute;
+          left: 0;
+          top: 0;
+          font-size: 1.5rem;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  // Responsive Design
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+
+    .titrePage {
+      font-size: 2rem;
+    }
+
+    .section-content {
+      padding: 1.5rem;
+
+      .num-title {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      ul li {
+        font-size: 0.9rem;
+      }
+    }
+  }
+  // Animation pour les sections
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-in-out forwards;
+  // Keyframes pour animation
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

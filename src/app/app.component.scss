@@ -1,0 +1,19 @@
+.component-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  #content {
+    flex: 1; /* Permet au contenu de s'étendre */
+    padding: 20px; /* Ajoute de l'espacement */
+    background-color: #f8f9fa; /* Couleur de fond */
+  }
+
+  app-footer {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    width: 100%;
+    margin-top: auto;
+  }
+}

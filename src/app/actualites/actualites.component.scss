@@ -1,0 +1,104 @@
+body {
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff); // Dégradé précédent comme fond principal
+  padding-top: 50px; // Pour que le contenu ne colle pas au haut de la page
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #ffffff; // Fond blanc pour le conteneur des sections
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #8b0000;
+    margin-bottom: 3rem;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background-color: #8b0000;
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+  }
+
+  .sections {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .section {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.5rem;
+      background-color: #ffffff; // Fond blanc pour les sections
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .section-image {
+        flex: 1;
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 12px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      .section-content {
+        flex: 1;
+
+        .section-title {
+          font-size: 1.8rem;
+          color: #8b0000;
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+          font-size: 1rem;
+          color: gray;
+          font-style: italic;
+          margin-bottom: 1rem;
+        }
+
+        .section-description {
+          font-size: 1.1rem;
+          line-height: 1.8;
+          color: #333;
+          margin-bottom: 1.5rem;
+          text-align: justify;
+        }
+
+        .btn {
+          background-color: #8b0000;
+          color: white;
+          padding: 0.6rem 1.5rem;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: bold;
+
+          &:hover {
+            background-color: darken(#8b0000, 10%);
+          }
+        }
+      }
+
+      &.reverse {
+        flex-direction: row-reverse; // Alterne l'image et le texte
+      }
+    }
+  }
+}

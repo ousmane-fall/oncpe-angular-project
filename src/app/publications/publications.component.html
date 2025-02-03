@@ -1,0 +1,18 @@
+<div class="publications">
+  <h2>Nos Publications</h2>
+
+  <div *ngFor="let publication of publications" class="publication-card">
+    <div class="overlay"></div>
+    <div class="content">
+      <h3>{{ publication.title }}</h3>
+      <p><strong>Date :</strong> {{ publication.date }}</p>
+      <img [src]="'assets/images/' + publication.image"
+           alt="{{ publication.title }}"
+           class="publication-image" />
+      <p>{{ publication.description }}</p>
+      <a [href]="'/assets/docs/' + publication.downloadFile" target="_blank">
+        Télécharger le document
+      </a>
+    </div>
+  </div>
+</div>

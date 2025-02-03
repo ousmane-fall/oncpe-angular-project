@@ -30,7 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css", // Ajout de Bootstrap ici
+              "src/styles.scss",
+              "src/app/shared/navbar/navbar.component.scss"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -95,6 +97,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css", // Ajout de Bootstrap ici également pour les tests
               "src/styles.scss"
             ],
             "scripts": []
@@ -102,5 +105,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
