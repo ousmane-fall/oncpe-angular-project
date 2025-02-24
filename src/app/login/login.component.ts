@@ -18,21 +18,23 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   login(): void {
-    // Appeler login en passant les deux arguments séparément
+    console.log("Tentative de connexion avec :", this.user);
     this.authService.login(this.user.username, this.user.password).subscribe({
       next: (response: any) => {
-        // Stocke le rôle retourné par l'API
+        console.log("Réponse de connexion :", response);
         this.authService.setUserRole(response.role);
-        // Redirection selon le rôle
         if (response.role === 'admin') {
+          console.log("Redirection vers /admin");
           this.router.navigate(['/admin']);
         } else {
+          console.log("Redirection vers /home");
           this.router.navigate(['/home']);
         }
       },
-      error: (err: any) => { // Typage explicite pour 'err'
+      error: (err: any) => {
         console.error("Erreur lors de la connexion :", err);
       }
     });
   }
+
 }

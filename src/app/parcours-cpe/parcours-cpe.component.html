@@ -1,0 +1,19 @@
+<div>
+  <h1>Parcours CPE</h1>
+  <div>
+    <label for="type">Sélectionnez votre type de maître d'ouvrage :</label>
+    <select id="type" [(ngModel)]="selectedType" (change)="onTypeChange(selectedType)">
+      <option value="public">Maître d'ouvrage public</option>
+      <option value="prive">Maître d'ouvrage privé</option>
+      <option value="copropriete">Copropriété / Bailleur</option>
+    </select>
+  </div>
+
+  <div *ngFor="let etape of parcours">
+    <h2>{{ etape.title }}</h2>
+    <p>{{ etape.description }}</p>
+    <div *ngFor="let resource of etape.resources">
+      <a [href]="resource.url" target="_blank">{{ resource.type }} Link</a>
+    </div>
+  </div>
+</div>

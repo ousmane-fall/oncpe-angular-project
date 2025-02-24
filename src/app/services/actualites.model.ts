@@ -1,4 +1,5 @@
 export interface Actualite {
+  _id: string;
   id: string;
   title: string;
   subtitle?: string;
@@ -6,11 +7,8 @@ export interface Actualite {
   image: string;
   description: string;
   link?: string;
-  expanded?: boolean;
 }
 
 export interface ActualitesResponse {
-  _id: string;
-  title: string;
-  actualites: Actualite[];
+  actualites: Actualite[];  // Réponse contenant une clé 'actualites' avec un tableau d'actualités
 }

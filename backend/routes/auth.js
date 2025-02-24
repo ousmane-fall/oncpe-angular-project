@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const router = express.Router();
-const SECRET_KEY = 'ousmane';
+const SECRET_KEY = process.env.SECRET_KEY;
 
 // Inscription (POST /register)
 router.post('/register', async (req, res) => {
@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
     const valid = await bcrypt.compare(password, user.password);
     if (!valid) return res.status(401).json({ message: 'Mot de passe incorrect' });
 
-    // Envoie du rôle dans la réponse (vous pouvez aussi créer un token JWT incluant le rôle)
+    // Envoie du rôle dans la réponse  aussi créer un token JWT incluant le rôle
     res.json({ message: 'Connexion réussie', role: user.role, userId: user._id });
   } catch (error) {
     res.status(500).json({ message: 'Erreur serveur', error });

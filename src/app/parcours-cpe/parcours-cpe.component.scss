@@ -1,0 +1,22 @@
+.parcours-cpe nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.parcours-cpe nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.parcours-cpe nav ul li a {
+  text-decoration: none;
+  color: #8b0000;
+}
+
+.parcours-cpe nav ul li a.active {
+  font-weight: bold;
+}
+
+.parcours-cpe nav ul li a:hover {
+  color: #b22222;
+}

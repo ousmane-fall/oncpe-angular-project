@@ -1,18 +1,20 @@
-<div class="publications">
-  <h2>Nos Publications</h2>
+<div class="categories-menu">
+  <button *ngFor="let category of categories" (click)="onCategoryChange(category)">
+    {{ category | titlecase }}  <!-- Affiche la catégorie en format titlecase -->
+  </button>
+</div>
 
-  <div *ngFor="let publication of publications" class="publication-card">
-    <div class="overlay"></div>
-    <div class="content">
+<div class="publications-list">
+  <div *ngIf="!publications || publications.length === 0">
+    <p>Aucune publication disponible dans cette catégorie.</p>
+  </div>
+
+  <div *ngFor="let publication of publications">
+    <div class="publication-card">
+      <img [src]="publication.image" alt="Image de la publication" />
       <h3>{{ publication.title }}</h3>
-      <p><strong>Date :</strong> {{ publication.date }}</p>
-      <img [src]="'assets/images/' + publication.image"
-           alt="{{ publication.title }}"
-           class="publication-image" />
       <p>{{ publication.description }}</p>
-      <a [href]="'/assets/docs/' + publication.downloadFile" target="_blank">
-        Télécharger le document
-      </a>
+      <a [href]="publication.downloadFile" download>Télécharger</a>
     </div>
   </div>
 </div>

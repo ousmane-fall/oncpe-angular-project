@@ -11,20 +11,32 @@ import { Actualite, ActualitesResponse } from '../services/actualites.model';
   imports: [CommonModule]
 })
 export class ActualitesComponent implements OnInit {
-  actualites: Actualite[] = [];
+  actualites: Actualite[] = [];  // Initialisation avec un tableau vide
   expandedIndex: number | null = null;
 
   constructor(private actualitesService: ActualitesService) { }
 
   ngOnInit(): void {
-    this.actualitesService.getActualites().subscribe({
-      next: (data) => {
-        this.actualites = data[0]?.actualites || [];
+    this.loadActualites();
+  }
+
+  loadActualites(): void {
+    this.actualitesService.getActualites().subscribe(
+      (data: ActualitesResponse[]) => {
+        console.log('Données récupérées depuis l\'API:', data);
+
+        // Vérifie si la réponse contient un tableau d'actualités
+        if (data && Array.isArray(data)) {
+          this.actualites = data.flatMap((response: ActualitesResponse) => response.actualites);
+          console.log('Actualités récupérées:', this.actualites);
+        } else {
+          console.error('Format de réponse inattendu. Les données doivent être un tableau d\'actualités:', data);
+        }
       },
-      error: (err) => {
-        console.error('Erreur lors de la récupération des actualités :', err);
+      (error) => {
+        console.error('Erreur lors de la récupération des actualités:', error);
       }
-    });
+    );
   }
 
   toggleDescription(index: number): void {

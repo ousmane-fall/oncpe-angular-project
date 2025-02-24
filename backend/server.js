@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 
+
 // Import des routes
 const actualitesRoutes = require('./routes/actualites');
 const publicationsRoutes = require('./routes/publications');
 const authRoutes = require('./routes/auth');
+//const parcoursRoutes = require('./routes/parcours');
 
 dotenv.config();
 
@@ -16,9 +18,9 @@ app.use(cors()); // Pour autoriser les requêtes cross-origin
 
 // Connexion à MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('✅ Connected to MongoDB Atlas'))
+  .then(() => console.log(' Connected to MongoDB Atlas'))
   .catch((err) => {
-    console.error('❌ Failed to connect to MongoDB:', err.message);
+    console.error(' Failed to connect to MongoDB:', err.message);
     process.exit(1); // Arrête le serveur en cas de problème
   });
 
@@ -26,6 +28,8 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 app.use('/api/actualites', actualitesRoutes);
 app.use('/api/publications', publicationsRoutes);
 app.use('/api/auth', authRoutes);
+//app.use('/api', parcoursRoutes);
+
 
 // Exemple de route pour vérifier le serveur
 app.get('/', (req, res) => {
@@ -49,5 +53,5 @@ app.use((req, res) => {
 // Démarrer le serveur
 const PORT = process.env.PORT || 4200;
 app.listen(PORT, () => {
-  console.log(`🌐 Server running on port ${PORT}`);
+  console.log(` Server running on port ${PORT}`);
 });

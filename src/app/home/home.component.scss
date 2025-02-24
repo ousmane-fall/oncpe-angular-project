@@ -48,22 +48,50 @@ body {
 
 /* Boutons */
 .btn-glow {
-  background-color: #8B0000; /* Fond rouge sombre */
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 0.9rem;
+  color: #8b0000; /* Texte rouge foncé */
+  padding: 0.5rem 1.2rem; /* Moins d'espace intérieur pour un bouton plus petit */
+  border: 2px solid #8b0000; /* Bordure rouge */
+  border-radius: 30px; /* Coins arrondis */
+  font-weight: 500; /* Poids du texte réduit pour un aspect plus léger */
+  font-size: 0.9rem; /* Taille du texte réduite */
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out; /* Transition fluide */
+  display: inline-block; /* Assurer que le bouton reste au même niveau */
+  text-align: center; /* Centrer le texte dans le bouton */
+  background-color: transparent; /* Fond transparent pour que le rouge de la bordure soit visible */
+  /* Effet d'ombre de base pour un bouton plus lumineux */
+  box-shadow: 0 3px 6px rgba(139, 0, 0, 0.1);
 
   &:hover {
-    background-color: #A40000; /* Rouge légèrement plus clair au survol */
-    box-shadow: 0 4px 8px rgba(139, 0, 0, 0.2); /* Ombre douce */
-    transform: translateY(-2px); /* Légère élévation */
+    background-color: #8b0000; /* Fond rouge au survol */
+    color: #fff; /* Texte blanc au survol */
+    border: 2px solid #8b0000; /* Bordure rouge au survol */
+    box-shadow: 0 5px 10px rgba(139, 0, 0, 0.2); /* Ombre renforcée au survol */
+    transform: translateY(-3px); /* Légère élévation au survol */
+  }
+  /* Ajout d'une animation de pulsation pour une interaction dynamique */
+  &:focus {
+    outline: none; /* Enlever le contour par défaut */
+    animation: pulse 1.5s ease-in-out infinite; /* Animation de pulsation */
   }
 }
+
+/* Animation de pulsation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05); /* Agrandissement à 105% */
+  }
+
+  100% {
+    transform: scale(1); /* Retour à la taille d'origine */
+  }
+}
+
+
 
 /* Images */
 .image-wrapper img {

@@ -1,0 +1,12 @@
+<div>
+  <h2>Etudes de cas</h2>
+  <ul>
+    <li *ngFor="let publication of publications">
+      <h3>{{ publication.title }}</h3>
+      <p>{{ publication.description }}</p>
+      <p>Date: {{ publication.date }}</p>
+      <img [src]="publication.image" alt="Image de la publication" />
+      <a [href]="publication.downloadFile" download>Télécharger</a>
+    </li>
+  </ul>
+</div>

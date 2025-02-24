@@ -1,5 +1,13 @@
+// Palette de couleurs
+$primary-color: #8b0000; // Rouge sombre
+$secondary-bg: #f8f9fa; // Gris clair pour le fond global
+$card-bg: #fff; // Blanc pour les cartes
+$text-color: #333; // Texte principal
+$shadow-color: rgba(0, 0, 0, 0.1); // Ombre douce
+$hover-shadow: rgba(0, 0, 0, 0.15); // Ombre au survol
+
 body {
-  background: linear-gradient(to bottom, #f8f9fa, #ffffff); // Dégradé précédent comme fond principal
+  background: $secondary-bg; // Dégradé précédent comme fond principal
   padding-top: 50px; // Pour que le contenu ne colle pas au haut de la page
 }
 
@@ -7,14 +15,14 @@ body {
   max-width: 1200px;
   margin: auto;
   padding: 2rem;
-  background-color: #ffffff; // Fond blanc pour le conteneur des sections
+  background-color: $secondary-bg;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 
   h1 {
     text-align: center;
     font-size: 2.8rem;
-    color: #8b0000;
+    color: $primary-color;
     margin-bottom: 3rem;
 
     &::after {
@@ -22,7 +30,7 @@ body {
       display: block;
       width: 100px;
       height: 4px;
-      background-color: #8b0000;
+      background-color: $primary-color;
       margin: 1rem auto 0;
       border-radius: 2px;
     }
@@ -38,12 +46,14 @@ body {
       align-items: center;
       gap: 2rem;
       padding: 1.5rem;
-      background-color: #ffffff; // Fond blanc pour les sections
+      background-color: $card-bg;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px $shadow-color;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
 
       &:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px $hover-shadow;
       }
 
       .section-image {
@@ -53,7 +63,7 @@ body {
           width: 100%;
           height: auto;
           border-radius: 12px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px $shadow-color;
         }
       }
 
@@ -62,7 +72,7 @@ body {
 
         .section-title {
           font-size: 1.8rem;
-          color: #8b0000;
+          color: $primary-color;
           font-weight: bold;
           margin-bottom: 1rem;
         }
@@ -77,27 +87,35 @@ body {
         .section-description {
           font-size: 1.1rem;
           line-height: 1.8;
-          color: #333;
+          color: $text-color;
           margin-bottom: 1.5rem;
           text-align: justify;
         }
 
         .btn {
-          background-color: #8b0000;
-          color: white;
+          color: $primary-color; /* Texte rouge foncé */
+          background-color: transparent; /* Fond transparent */
           padding: 0.6rem 1.5rem;
-          border-radius: 8px;
-          text-decoration: none;
-          font-weight: bold;
+          border: 2px solid $primary-color; /* Bordure rouge */
+          border-radius: 50px; /* Coins arrondis */
+          font-weight: 600;
+          font-size: 1rem;
+          text-transform: uppercase;
+          transition: all 0.3s ease;
+          display: inline-block; /* Assurer que le bouton reste au même niveau */
+          text-align: center;
 
           &:hover {
-            background-color: darken(#8b0000, 10%);
+            background-color: $primary-color; /* Fond rouge au survol */
+            color: #fff; /* Texte blanc au survol */
+            box-shadow: 0 4px 8px rgba(139, 0, 0, 0.2); /* Ombre douce */
+            transform: translateY(-2px); /* Légère élévation */
           }
         }
       }
 
       &.reverse {
-        flex-direction: row-reverse; // Alterne l'image et le texte
+        flex-direction: row-reverse; /* Alterne l'image et le texte */
       }
     }
   }

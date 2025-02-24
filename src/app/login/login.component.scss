@@ -1,0 +1,83 @@
+// Variables globales pour respecter le design existant
+$primary-color: #8B0000; // Rouge sombre (couleur principale)
+$background-color: #f8f9fa; // Fond clair
+$text-color: #343a40;
+$border-color: #ddd;
+$white: #ffffff;
+$border-radius: 6px;
+$font-family: 'Arial', sans-serif;
+
+// Conteneur principal
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $background-color;
+
+  .login-card {
+    background-color: $white;
+    padding: 2rem;
+    border-radius: $border-radius;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+    border: 1px solid $border-color;
+
+    h2 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        font-size: 1rem;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 5px rgba($primary-color, 0.5);
+        }
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: $primary-color;
+        color: $white;
+        border: none;
+        border-radius: $border-radius;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+
+    .register-link {
+      margin-top: 10px;
+      font-size: 0.9rem;
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

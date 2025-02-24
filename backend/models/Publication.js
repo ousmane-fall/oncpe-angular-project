@@ -1,36 +1,40 @@
+// backend/models/Publication.js
+
 const mongoose = require('mongoose');
 
 // Définir le schéma pour les publications
-const publicationsSchema = new mongoose.Schema({
+const publicationSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
-    trim: true
+    required: true
   },
   description: {
     type: String,
     required: true
   },
-  author: {
+  category: {
     type: String,
+    enum: ['Chiffres clés', 'Etudes de cas', 'Analyses thématiques'], // Catégories disponibles
     required: true
   },
   date: {
     type: Date,
-    default: Date.now
+    required: true
   },
-  fileUrl: {
+  image: {
     type: String,
-    required: true // URL vers le fichier PDF ou autre ressource
+    required: true
   },
-  tags: {
-    type: [String], // Liste de tags associés
+  downloadFile: {
+    type: String,
+    required: true
   },
-  category: {
-    type: String, // Catégorie de la publication
+  documentId: {
+    type: Number,
+    required: true
   }
 });
 
-const Publication = mongoose.model('Publication', publicationsSchema);
+const Publication = mongoose.model('Publication', publicationSchema);
 
 module.exports = Publication;

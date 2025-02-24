@@ -1,16 +1,21 @@
-<h2>Gestion des Actualités</h2>
+<div class="admin-container">
+  <h2>Gestion des Actualités</h2>
 
-<!-- Formulaire pour ajouter une actualité -->
-<form (ngSubmit)="addActualite()">
-  <input type="text" placeholder="Titre" [(ngModel)]="newActualite.title" name="title" required>
-  <textarea placeholder="Description" [(ngModel)]="newActualite.description" name="description" required></textarea>
-  <button type="submit">Ajouter</button>
-</form>
+  <!-- Formulaire d'ajout -->
+  <form class="actualites-form" (ngSubmit)="addActualite()">
+    <input type="text" placeholder="Titre" [(ngModel)]="newActualite.title" name="title" required>
+    <textarea placeholder="Description" [(ngModel)]="newActualite.description" name="description" required></textarea>
+    <button type="submit">Ajouter l'actualité</button>
+  </form>
 
-<!-- Liste des actualités avec bouton de suppression -->
-<ul>
-  <li *ngFor="let act of actualites">
-    {{ act.title }} - {{ act.description }}
-    <button (click)="deleteActualite(act._id)">Supprimer</button>
-  </li>
-</ul>
+  <!-- Liste des actualités -->
+  <ul class="actualites-list">
+    <li *ngFor="let act of actualites">
+      <div class="actualite-info">
+        <strong>{{ act.title }}</strong>
+        <p>{{ act.description }}</p>
+      </div>
+      <button (click)="deleteActualite(act.id)">Supprimer</button>
+    </li>
+  </ul>
+</div>

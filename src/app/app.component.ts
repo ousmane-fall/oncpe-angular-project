@@ -11,6 +11,7 @@ import { PublicationsComponent } from './publications/publications.component';
 import { RessourcesComponent } from './ressources/ressources.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { FormsModule } from '@angular/forms';
+import { ParcoursCPEComponent } from './parcours-cpe/parcours-cpe.component';
 
 @Component({
   selector: 'app-root',

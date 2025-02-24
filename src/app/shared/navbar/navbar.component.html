@@ -30,7 +30,7 @@
     </div>
     <div class="logo-item">
       <a href="https://programme-cee-actee.fr/" target="_blank" rel="noopener noreferrer">
-        <img src="assets/images/Logo_ACTEE.png" alt="ACTEE" />
+        <img src="assets/images/Logo_ACTEE1.png" alt="ACTEE" />
       </a>
     </div>
   </div>
@@ -91,8 +91,27 @@
         </li>
 
         <!-- Nos Publications -->
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/publications" routerLinkActive="active">Nos Publications</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             id="publicationsDropdown"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false"
+             routerLink="/publications"
+             routerLinkActive="active">
+            Nos Publications
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="publicationsDropdown">
+            <li>
+              <a class="dropdown-item" [routerLink]="['/publications']" fragment="chiffres-cles">Chiffres clés</a>
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/publications']" fragment="etudes-de-cas">Études de cas</a>
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/publications']" fragment="analyses-thematiques">Analyses thématiques</a>
+            </li>
+          </ul>
         </li>
 
         <!-- Nos Ressources -->
@@ -107,21 +126,30 @@
             Nos Ressources
           </a>
           <ul class="dropdown-menu" aria-labelledby="ressourcesDropdown">
-            <li>
-              <a class="dropdown-item" [routerLink]="['/ressources']" fragment="guides">Guides</a>
-            </li>
-            <li>
-              <a class="dropdown-item" [routerLink]="['/ressources']" fragment="technical-resources">Ressources techniques</a>
-            </li>
-            <li>
-              <a class="dropdown-item" [routerLink]="['/ressources']" fragment="legal-resources">Ressources juridiques</a>
-            </li>
-            <li>
-              <a class="dropdown-item" [routerLink]="['/ressources']" fragment="case-studies">Retours d’expériences</a>
-            </li>
-            <li>
-              <a class="dropdown-item" [routerLink]="['/ressources']" fragment="international">International</a>
-            </li>
+            <li><a class="dropdown-item" [routerLink]="['/ressources']" fragment="guides">Guides</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/ressources']" fragment="technical-resources">Ressources techniques</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/ressources']" fragment="legal-resources">Ressources juridiques</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/ressources']" fragment="case-studies">Retours d’expériences</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/ressources']" fragment="international">International</a></li>
+          </ul>
+        </li>
+
+        <!-- Parcours CPE -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             id="parcoursCPEDropdown"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false"
+             routerLink="/parcours-cpe"
+             routerLinkActive="active">
+            Parcours CPE
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="parcoursCPEDropdown">
+            <li><a class="dropdown-item" [routerLink]="['/parcours-cpe/decouverte']">Découverte du CPE</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/parcours-cpe/strategie-renovation']">Stratégie de rénovation</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/parcours-cpe/preparation-amo']">Préparation et AMO</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/parcours-cpe/choix-marche']">Choix du marché</a></li>
           </ul>
         </li>
       </ul>
@@ -146,4 +174,3 @@
     </div>
   </div>
 </nav>
-

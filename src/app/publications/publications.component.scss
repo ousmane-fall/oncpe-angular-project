@@ -70,20 +70,26 @@ $hover-shadow: rgba(0, 0, 0, 0.15); // Ombre au survol
         line-height: 1.6;
         margin-bottom: 1.5rem;
       }
-
+      // Bouton modifié
       a {
-        display: inline-block;
-        padding: 0.6rem 1.2rem;
-        background: $primary-color;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 6px;
+        color: $primary-color; /* Texte rouge foncé */
+        background-color: transparent; /* Fond transparent */
+        padding: 0.6rem 1.5rem;
+        border: 2px solid $primary-color; /* Bordure rouge */
+        border-radius: 50px; /* Coins arrondis */
+        font-weight: 600;
         font-size: 1rem;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        display: inline-block; /* Assurer que le bouton reste au même niveau */
+        text-align: center;
+        text-decoration: none; /* Enlever la décoration de texte (soulignement) */
 
         &:hover {
-          background-color: lighten($primary-color, 10%);
+          background-color: $primary-color; /* Fond rouge au survol */
+          color: #fff; /* Texte blanc au survol */
+          box-shadow: 0 4px 8px rgba(139, 0, 0, 0.2); /* Ombre douce */
+          transform: translateY(-2px); /* Légère élévation */
         }
       }
     }
