@@ -1,20 +1,10 @@
-<div class="categories-menu">
-  <button *ngFor="let category of categories" (click)="onCategoryChange(category)">
-    {{ category | titlecase }}  <!-- Affiche la catégorie en format titlecase -->
-  </button>
+<div *ngIf="!filteredPublications || filteredPublications.length === 0">
+  <p>Aucune publication disponible pour cette catégorie.</p>
 </div>
 
-<div class="publications-list">
-  <div *ngIf="!publications || publications.length === 0">
-    <p>Aucune publication disponible dans cette catégorie.</p>
-  </div>
-
-  <div *ngFor="let publication of publications">
-    <div class="publication-card">
-      <img [src]="publication.image" alt="Image de la publication" />
-      <h3>{{ publication.title }}</h3>
-      <p>{{ publication.description }}</p>
-      <a [href]="publication.downloadFile" download>Télécharger</a>
-    </div>
-  </div>
+<div *ngFor="let publication of filteredPublications">
+  <h3>{{ publication.title }}</h3>
+  <p>{{ publication.description }}</p>
+  <img [src]="publication.image" alt="Image de la publication">
+  <a [href]="publication.downloadFile" download>Télécharger</a>
 </div>

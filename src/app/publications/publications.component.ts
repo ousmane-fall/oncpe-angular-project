@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { PublicationsService } from '../services/publications.service';
 import { ActivatedRoute } from '@angular/router';
-import { ChiffresClesComponent } from './chiffres-cles/chiffres-cles.component';  // Assurez-vous de l'importer
-import { EtudesDeCasComponent } from './etudes-de-cas/etudes-de-cas.component';  // Assurez-vous de l'importer
-import { AnalysesThematiquesComponent } from './analyses-thematiques/analyses-thematiques.component';  // Assurez-vous de l'importer
+import { ChiffresClesComponent } from './chiffres-cles/chiffres-cles.component';
+import { EtudesDeCasComponent } from './etudes-de-cas/etudes-de-cas.component';
+import { AnalysesThematiquesComponent } from './analyses-thematiques/analyses-thematiques.component';
+import { PublicationsResponse } from '../services/publications.model';
 
 @Component({
   selector: 'app-publications',
@@ -15,7 +16,7 @@ import { AnalysesThematiquesComponent } from './analyses-thematiques/analyses-th
   imports: [
     CommonModule,
     HttpClientModule,
-    ChiffresClesComponent,  // Ajoutez ces composants si vous souhaitez les utiliser dans ce composant
+    ChiffresClesComponent,
     EtudesDeCasComponent,
     AnalysesThematiquesComponent,
   ],
@@ -23,9 +24,7 @@ import { AnalysesThematiquesComponent } from './analyses-thematiques/analyses-th
 export class PublicationsComponent implements OnInit {
   filteredPublications: any[] = [];  // Publications filtrées selon la catégorie
   selectedCategory: string = ''; // Catégorie sélectionnée, récupérée depuis la route
-  publications: any[] | undefined;
   categories: string[] = ['Chiffres clés', 'Etudes de cas', 'Analyses thématiques']; // Définir les catégories disponibles
-
 
   constructor(
     private publicationsService: PublicationsService,
@@ -34,18 +33,12 @@ export class PublicationsComponent implements OnInit {
 
   ngOnInit(): void {
     // Récupérer la catégorie depuis les paramètres de la route
-    this.selectedCategory = this.route.snapshot.paramMap.get('category') || 'Etudes de cas';  // Valeur par défaut
+    this.selectedCategory = this.route.snapshot.paramMap.get('category') || 'Etudes de cas'; // Valeur par défaut
 
-    // Récupérer les publications pour la catégorie sélectionnée
-    this.publicationsService.getPublicationsByCategory(this.selectedCategory).subscribe((data: any[]) => {
-      this.filteredPublications = data;
-    });
-  }
-
-  loadPublicationsByCategory(): void {
+    // Charger les publications pour la catégorie sélectionnée
     this.publicationsService.getPublicationsByCategory(this.selectedCategory).subscribe(
-      (data) => {
-        this.publications = data; // Affecte les publications filtrées
+      (response: PublicationsResponse) => {
+        this.filteredPublications = response.publications;  // Extraire 'publications' et l'assigner
       },
       (error) => {
         console.error('Erreur lors de la récupération des publications', error);
@@ -56,6 +49,14 @@ export class PublicationsComponent implements OnInit {
   // Méthode pour changer la catégorie et charger les publications correspondantes
   onCategoryChange(category: string): void {
     this.selectedCategory = category;
-    this.loadPublicationsByCategory(); // Recharger les publications selon la nouvelle catégorie
+    // Recharger les publications selon la nouvelle catégorie
+    this.publicationsService.getPublicationsByCategory(this.selectedCategory).subscribe(
+      (response: PublicationsResponse) => {
+        this.filteredPublications = response.publications;  // Extraire 'publications' et l'assigner
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des publications', error);
+      }
+    );
   }
 }

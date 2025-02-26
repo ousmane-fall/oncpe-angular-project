@@ -62,14 +62,14 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   loadPublications(): void {
-    this.publicationService['getPublications']().subscribe(
-      (response: PublicationsResponse) => {  // On s'attend à une réponse de type PublicationsResponse
+    this.publicationService.getPublications().subscribe(
+      (response: PublicationsResponse): void => {  // On s'attend à une réponse de type PublicationsResponse
         console.log('Données récupérées depuis l\'API:', response);
 
         // Vérifier si la réponse contient un tableau de publications
         if (response && response.publications && Array.isArray(response.publications)) {
           this.publications = response.publications;  // Extraire la clé 'publications' de la réponse
-          console.log('Publications récupérées:');
+          console.log('Publications récupérées:', this.publications);
         } else {
           console.error('Format de réponse invalide. Attendu un tableau sous la clé "publications".');
         }
@@ -115,7 +115,7 @@ export class AdminDashboardComponent implements OnInit {
 
   addPublication(): void {
     if (this.newPublication.title && this.newPublication.description) {
-      this.publicationService['addPublication'](this.newPublication).subscribe(  // Utilisation de la syntaxe entre crochets pour l'index signature
+      this.publicationService.addPublication(this.newPublication).subscribe(  // Appel de addPublication
         (data: Publication) => {  // Type explicite pour data
           this.publications.push(data);
           this.resetPublicationForm();
@@ -141,7 +141,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   deletePublication(id: string): void {
-    this.publicationService['deletePublication'](id).subscribe(  // Utilisation de la syntaxe entre crochets pour l'index signature
+    this.publicationService.deletePublication(id).subscribe(  // Appel de deletePublication
       () => {
         this.publications = this.publications.filter(pub => pub._id !== id);
       },
